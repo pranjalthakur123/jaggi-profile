@@ -1,0 +1,1689 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devinder Jaggi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f8f6f0;
+        --paper-dim: #f0ece1;
+        --ink: #181818;
+        --ink-soft: #4a4a44;
+        --navy: #0b2145;
+        --navy-deep: #06132b;
+        --navy-mid: #12305c;
+        --saffron: #e8720c;
+        --saffron-deep: #b8590a;
+        --green: #0f6b33;
+        --green-deep: #0b4f26;
+        --rule: rgba(24, 24, 24, 0.13);
+        --max: 1120px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Work Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--saffron-deep);
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 22px;
+        height: 1px;
+        background: var(--saffron-deep);
+        display: inline-block;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--saffron-deep);
+        outline-offset: 3px;
+      }
+
+      .flagrule {
+        display: flex;
+        height: 3px;
+      }
+      .flagrule div {
+        flex: 1;
+      }
+      .flagrule .fr-s {
+        background: var(--saffron);
+      }
+      .flagrule .fr-w {
+        background: var(--paper);
+      }
+      .flagrule .fr-g {
+        background: var(--green);
+      }
+
+      /* TOPBAR */
+      .topbar {
+        background: var(--navy-deep);
+        color: #c9d2df;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.74rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .topbar::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 15% 50%,
+            rgba(232, 114, 12, 0.25),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 85% 50%,
+            rgba(15, 107, 51, 0.3),
+            transparent 55%
+          );
+      }
+      .topbar .wrap {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        padding: 9px 28px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .topbar a {
+        color: #c9d2df;
+      }
+      .topbar a:hover {
+        color: var(--saffron);
+      }
+      .topbar .tb-links {
+        display: flex;
+        gap: 18px;
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(248, 246, 240, 0.94);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--rule);
+      }
+      nav .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 28px;
+      }
+      .brand {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        letter-spacing: -0.02em;
+        color: var(--navy);
+      }
+      .brand span {
+        color: var(--saffron-deep);
+      }
+      .navlinks {
+        display: flex;
+        gap: 26px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        align-items: center;
+      }
+      .navlinks a {
+        color: var(--ink-soft);
+        transition: color 0.2s;
+      }
+      .navlinks a:hover {
+        color: var(--navy);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        transition:
+          transform 0.15s ease,
+          background 0.2s ease;
+      }
+      .btn-primary {
+        background: var(--saffron-deep);
+        color: #fff;
+        border: 1px solid var(--navy);
+      }
+      .btn-primary:hover {
+        background: var(--saffron);
+        transform: translateY(-1px);
+        border-radius: 150px;
+      }
+      .btn-outline {
+        border: 1px solid var(--navy);
+        color: var(--navy);
+      }
+      .btn-outline:hover {
+        border-color: var(--saffron-deep);
+        color: var(--saffron-deep);
+      }
+
+      /* HERO */
+      .hero {
+        padding: 72px 0 0;
+        background:
+          radial-gradient(
+            circle at 88% 8%,
+            rgba(232, 114, 12, 0.16),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 6% 85%,
+            rgba(15, 107, 51, 0.14),
+            transparent 42%
+          ),
+          linear-gradient(180deg, var(--paper) 60%, var(--paper-dim) 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-chakra {
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 340px;
+        height: 340px;
+        opacity: 0.06;
+        z-index: 0;
+      }
+      .hero .wrap {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 40px;
+        align-items: end;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-shloka {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 1.05rem;
+        color: var(--navy-mid);
+        margin-bottom: 22px;
+        max-width: 460px;
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 4.2rem);
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        line-height: 0.98;
+        color: var(--navy);
+      }
+      .hero h1 .surname {
+        color: var(--saffron-deep);
+      }
+      .hero .devanagari {
+        font-family: "Fraunces", serif;
+        font-weight: 400;
+        font-style: italic;
+        font-size: clamp(1rem, 2.2vw, 1.4rem);
+        color: var(--ink-soft);
+        display: block;
+        margin-top: 8px;
+        padding-top: 10px;
+      }
+      .hero-role {
+        margin-top: 20px;
+        max-width: 520px;
+        color: var(--ink-soft);
+        font-size: 1.02rem;
+      }
+      .hero-role strong {
+        color: var(--ink);
+      }
+      .hero-tags {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--ink-soft);
+        flex-wrap: wrap;
+      }
+      .hero-tags span {
+        border: 1px solid var(--rule);
+        padding: 5px 12px;
+        border-radius: 100px;
+      }
+      .hero-cta {
+        margin-top: 30px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .hero-portrait {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .hero-portrait .frame {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+      }
+      .hero-portrait .frame::before {
+        content: "";
+        position: absolute;
+        inset: -10px;
+        border-radius: 10px;
+        background: linear-gradient(
+          160deg,
+          var(--saffron) 0%,
+          #fff 50%,
+          var(--green) 100%
+        );
+        z-index: 0;
+      }
+      .hero-portrait img {
+        width: 100%;
+        border-radius: 6px;
+        object-fit: cover;
+        aspect-ratio: 3/3.3;
+        box-shadow: 0 30px 60px -20px rgba(11, 33, 69, 0.45);
+        position: relative;
+        z-index: 1;
+        display: block;
+      }
+      .hero-portrait .tag {
+        position: absolute;
+        top: 16px;
+        left: calc(50% - 180px);
+        background: var(--saffron);
+        color: #fff;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.66rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: 2px;
+        font-weight: 500;
+        z-index: 2;
+      }
+
+      /* CAMPAIGN / COUNTDOWN */
+      .campaign {
+        background: var(--navy-deep);
+        color: #fff;
+        padding: 64px 0;
+        margin-top: 56px;
+      }
+      .campaign .wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .campaign h2 {
+        color: #fff;
+        font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+      }
+      .campaign p {
+        color: #c9d2df;
+        margin-top: 14px;
+        max-width: 460px;
+      }
+      .countdown {
+        display: flex;
+        gap: 14px;
+        margin-top: 28px;
+      }
+      .cd-box {
+        background: #122a52;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        padding: 16px 18px;
+        text-align: center;
+        min-width: 76px;
+      }
+      .cd-box .n {
+        font-family: "Fraunces", serif;
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: var(--saffron);
+      }
+      .cd-box .l {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #9aa8c2;
+        margin-top: 4px;
+      }
+      .campaign-note {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        color: #7f8fae;
+        margin-top: 14px;
+      }
+      .mini-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .mini-card {
+        background: #122a52;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        padding: 20px 22px;
+      }
+      .mini-card h3 {
+        color: var(--saffron);
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .mini-card p {
+        color: #c9d2df;
+        font-size: 0.88rem;
+        margin: 0;
+      }
+
+      /* SECTION GENERAL */
+      section {
+        padding: 88px 0;
+      }
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 46px;
+      }
+      .section-head h2 {
+        font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+        margin-top: 14px;
+        color: var(--navy);
+      }
+      .section-head p {
+        color: var(--ink-soft);
+        margin-top: 14px;
+      }
+
+      /* PRIORITY CHIPS */
+      .chips {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .chip {
+        border: 1px solid var(--navy);
+        color: var(--navy);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.76rem;
+        padding: 9px 16px;
+        border-radius: 100px;
+        transition: all 0.2s;
+      }
+      .chip:hover {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      /* ABOUT/VISION */
+      .vision {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .vision-img {
+        width: 100%;
+        border-radius: 6px;
+        box-shadow: 0 20px 50px -20px rgba(11, 33, 69, 0.35);
+      }
+      .vision-body p {
+        color: var(--ink-soft);
+        margin: 0 0 16px 0;
+      }
+
+      /* WHY CHOOSE GRID */
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .why-card {
+        background: #fff;
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        padding: 26px 24px;
+      }
+      .why-card .wnum {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--saffron-deep);
+      }
+      .why-card h3 {
+        font-size: 1.08rem;
+        margin-top: 12px;
+        color: var(--navy);
+      }
+      .why-card p {
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+      .why-card:nth-child(even) .wnum {
+        color: var(--green-deep);
+      }
+
+      /* INITIATIVES */
+      .init-section {
+        background: var(--paper-dim);
+      }
+      .init-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .init-card {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .init-card .init-top {
+        height: 6px;
+        background: var(--saffron);
+      }
+      .init-card:nth-child(even) .init-top {
+        background: var(--green);
+      }
+      .init-card .init-body {
+        padding: 22px 22px 24px;
+      }
+      .init-card h3 {
+        font-size: 1.02rem;
+        color: var(--navy);
+      }
+      .init-card p {
+        color: var(--ink-soft);
+        font-size: 0.88rem;
+        margin-top: 8px;
+      }
+      .init-card .rm {
+        display: inline-block;
+        margin-top: 14px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--saffron-deep);
+      }
+      .init-card:nth-child(even) .rm {
+        color: var(--green-deep);
+      }
+
+      /* NEWS */
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .news-card {
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .news-body {
+        padding: 22px;
+      }
+      .news-date {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--saffron-deep);
+        letter-spacing: 0.04em;
+      }
+      .news-card h3 {
+        font-size: 1rem;
+        margin-top: 8px;
+        color: var(--navy);
+        line-height: 1.35;
+      }
+      .news-card p {
+        color: var(--ink-soft);
+        font-size: 0.86rem;
+        margin-top: 8px;
+      }
+      .news-card a.rm {
+        display: inline-block;
+        margin-top: 12px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: var(--navy);
+      }
+
+      .facebook-feed {
+        background: transparent;
+        display: flex;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      .facebook-feed .fb-page,
+      .facebook-feed .fb-page iframe {
+        width: 100% !important;
+      }
+
+      section#facebook-feed {
+        background: var(--paper);
+      }
+      .instagram-box {
+  min-height: 720px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url("J_img3.png");
+
+  background-size: 620px 720px;
+background-position: center;
+background-repeat: no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+      .instagram-profile {
+        width: 800px;
+        text-align: center;
+        padding: 40px 25px;
+      }
+      .instagram-icon {
+        width: 75px;
+        height: 75px;
+        margin: 0 auto 20px;
+
+        border-radius: 20px;
+        border: 3px solid #d62976;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 48px;
+        color: #d62976;
+      }
+      .instagram-profile h3 {
+        margin: 10px 0;
+        font-size: 28px;
+      }
+
+      .instagram-profile p {
+        color: #666;
+        margin-bottom: 25px;
+      }
+      .instagram-btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+
+        background: #d62976;
+        color: white;
+
+        text-decoration: none;
+        font-weight: 600;
+
+        transition: 0.3s ease;
+      }
+
+      .instagram-btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+      @media (max-width: 768px) {
+        .social-feed {
+          flex-direction: column;
+        }
+
+        .instagram-box {
+          min-height: 400px;
+        }
+      }
+
+      /* popup form */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+
+        background: rgba(0, 0, 0, 0.6);
+
+        align-items: center;
+        justify-content: center;
+      }
+      /* Form Box */
+      .modal-content {
+        position: relative;
+        width: 420px;
+        max-width: 90%;
+        padding: 32px;
+
+        background: #ffffff;
+        border-radius: 14px;
+
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      }
+      /* Heading */
+      .modal-content h2 {
+        margin-bottom: 24px;
+        font-size: 26px;
+      }
+
+      /* Inputs */
+      .modal-content input,
+      .modal-content textarea {
+        width: 100%;
+        padding: 12px 14px;
+        margin-bottom: 16px;
+
+        border: 1px solid #d5d5d5;
+        border-radius: 7px;
+
+        font-family: inherit;
+        font-size: 15px;
+
+        outline: none;
+      }
+      /* Input focus */
+      .modal-content input:focus,
+      .modal-content textarea:focus {
+        border-color: #333;
+      }
+
+      /* Message */
+      .modal-content textarea {
+        height: 110px;
+        resize: vertical;
+      }
+      /* Submit button */
+      .modal-content form button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+
+        border: none;
+        border-radius: 7px;
+
+        background: #222;
+        color: white;
+
+        font-size: 15px;
+        font-weight: 600;
+
+        cursor: pointer;
+      }
+      /* Submit hover */
+      .modal-content form button[type="submit"]:hover {
+        opacity: 0.85;
+      }
+
+      /* Close button */
+      .close-btn {
+        position: absolute;
+        top: 12px;
+        right: 15px;
+
+        border: transparent;
+        background: transparent;
+
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+
+        color: #b71515;
+      }
+
+      .close-btn:hover {
+        background-color: red;
+        color: white;
+      }
+      @media (max-width: 500px) {
+        .modal-content {
+          width: 92%;
+          padding: 25px;
+        }
+      }
+
+      /* CTA BAND */
+      .cta-band {
+        background: var(--saffron-deep);
+        color: #fff;
+        text-align: center;
+        padding: 64px 0;
+      }
+      .cta-band h2 {
+        color: #fff;
+        font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+      }
+      .cta-band p {
+        color: #ffe4cc;
+        margin-top: 12px;
+      }
+      .cta-band .btn-primary {
+        background: var(--navy-deep);
+        margin-top: 24px;
+      }
+      .cta-band .btn-primary:hover {
+        background: #fff;
+        color: var(--navy-deep);
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--navy-deep);
+        color: #c9d2df;
+        padding: 64px 0 24px;
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+        gap: 36px;
+      }
+      .foot-brand {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 600;
+      }
+      .foot-brand span {
+        color: var(--saffron);
+      }
+      .foot-bio {
+        font-size: 0.85rem;
+        margin-top: 14px;
+        color: #9aa8c2;
+        max-width: 280px;
+      }
+      footer h4 {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--saffron);
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+      footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      footer ul a {
+        font-size: 0.88rem;
+        color: #c9d2df;
+      }
+      footer ul a:hover {
+        color: var(--saffron);
+      }
+      .foot-social {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .foot-social a {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+      .foot-social a:hover {
+        border-color: var(--saffron);
+        color: var(--saffron);
+      }
+      .foot-bottom {
+        margin-top: 48px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.76rem;
+        color: #7f8fae;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero .wrap,
+        .vision,
+        .campaign .wrap,
+        .foot-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-portrait {
+          order: -1;
+        }
+        .why-grid,
+        .init-grid,
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+        .navlinks {
+          display: none;
+        }
+        .countdown {
+          flex-wrap: wrap;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+      }
+
+      /* popup form success message */
+      .success-message {
+        display: none;
+        text-align: center;
+        padding: 30px 10px;
+        color: #16803c;
+      }
+
+      .success-icon {
+        width: 55px;
+        height: 55px;
+        margin: 0 auto 15px;
+
+        border-radius: 50%;
+        background: #dcfce7;
+        color: #16803c;
+
+        font-size: 32px;
+        font-weight: bold;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .success-message h2 {
+        color: #16803c;
+        margin-bottom: 8px;
+      }
+
+      .success-message p {
+        color: #555;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <div class="tb-links">
+          <a href="tel:">Dharamshala Constituency Office</a>
+          <a href="mailto:">Add contact email</a>
+        </div>
+        <div class="tb-links">
+          <a
+            href="https://www.facebook.com/j.devinder"
+            target="_blank"
+            rel="noopener"
+            >Facebook</a
+          >
+          <a
+            href="https://x.com/ANI/status/1788222464998199388"
+            target="_blank"
+            rel="noopener"
+            >X / Twitter</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="flagrule">
+      <div class="fr-s"></div>
+      <div class="fr-w"></div>
+      <div class="fr-g"></div>
+    </div>
+
+    <nav>
+      <div class="wrap">
+        <div class="brand">Devinder <span>Jaggi</span></div>
+        <div class="navlinks">
+          <a href="#about">About</a>
+          <a href="#priorities">Priorities</a>
+          <a href="#initiatives">Initiatives</a>
+          <a href="#news">Media</a>
+          <a class="btn btn-primary" href="#contact">Join the Movement</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <svg class="hero-chakra" viewBox="0 0 100 100" aria-hidden="true">
+        <circle
+          cx="50"
+          cy="50"
+          r="42"
+          fill="none"
+          stroke="var(--navy)"
+          stroke-width="3"
+        />
+        <circle cx="50" cy="50" r="4" fill="var(--navy)" />
+        <g stroke="var(--navy)" stroke-width="1.6">
+          <line x1="50" y1="8" x2="50" y2="92" />
+          <line x1="8" y1="50" x2="92" y2="50" />
+          <line x1="17" y1="17" x2="83" y2="83" />
+          <line x1="17" y1="83" x2="83" y2="17" />
+          <line x1="50" y1="8" x2="65" y2="35" />
+          <line x1="50" y1="8" x2="35" y2="35" />
+          <line x1="92" y1="50" x2="65" y2="35" />
+          <line x1="92" y1="50" x2="65" y2="65" />
+          <line x1="50" y1="92" x2="65" y2="65" />
+          <line x1="50" y1="92" x2="35" y2="65" />
+          <line x1="8" y1="50" x2="35" y2="65" />
+          <line x1="8" y1="50" x2="35" y2="35" />
+        </g>
+      </svg>
+      <div class="wrap">
+        <div>
+          <div class="hero-shloka">
+            “धर्मशाला की प्रगति, समृद्धि और जनसेवा के लिए सदैव समर्पित
+          </div>
+          <div class="eyebrow">
+            Former Mayor · Dharamshala Municipal Corporation
+          </div>
+          <h1>
+            Devinder <br /><span class="surname">Jaggi</span
+            ><span class="devanagari">देविंदर जग्गी...” </span>
+          </h1>
+          <p class="hero-role">
+            Indian National Congress leader from
+            <strong>Dharamshala, Kangra district</strong>. Former Mayor of
+            Dharamshala Municipal Corporation and a long-time public
+            representative.
+          </p>
+          <div class="hero-tags">
+            <span>Dharamshala, Kangra District</span>
+            <span>Indian National Congress</span>
+            <span>Former Mayor</span>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#about">Discover more</a>
+            <a
+              class="btn btn-outline"
+              href="https://www.facebook.com/j.devinder"
+              target="_blank"
+              rel="noopener"
+              >Facebook ↗</a
+            >
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <div class="frame">
+            <span class="tag">Mission 2027</span>
+            <img
+              src="J_images.jpg" alt="Devinder Jaggi"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="campaign" id="campaign">
+      <div class="wrap">
+        <div>
+          <div class="eyebrow" style="color: var(--saffron)">
+            Vision for Dharamshala
+          </div>
+
+          <h2 style="margin-top: 14px">Building Dharamshala's Future</h2>
+
+          <p>
+            A vision for a cleaner, better-connected and more prosperous
+            Dharamshala — with stronger civic services, tourism infrastructure,
+            rural development, youth opportunities and accessible governance.
+          </p>
+
+          <div class="countdown" id="countdown">
+            <div class="cd-box">
+              <div class="n" id="cd-days">--</div>
+              <div class="l">Days</div>
+            </div>
+
+            <div class="cd-box">
+              <div class="n" id="cd-hours">--</div>
+              <div class="l">Hours</div>
+            </div>
+
+            <div class="cd-box">
+              <div class="n" id="cd-mins">--</div>
+              <div class="l">Minutes</div>
+            </div>
+
+            <div class="cd-box">
+              <div class="n" id="cd-secs">--</div>
+              <div class="l">Seconds</div>
+            </div>
+          </div>
+
+          <div class="campaign-note">
+            Countdown towards the expected 2027 Himachal Pradesh Assembly
+            election period. Update the countdown once the Election Commission
+            officially announces the election schedule.
+          </div>
+        </div>
+
+        <div class="mini-cards">
+          <div class="mini-card">
+            <h3>Stay Informed</h3>
+            <p>
+              Follow Dharamshala's latest development initiatives, civic issues,
+              tourism projects and public activities.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Support the Vision</h3>
+            <p>
+              Be part of the conversation on better infrastructure, stronger
+              tourism, rural development and opportunities for local youth.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Connect With Us</h3>
+            <p>
+              Share local concerns, development priorities and community issues
+              so that Dharamshala's needs remain at the centre of public
+              service.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">About</div>
+          <h2>From Dharamshala's local leadership to public service</h2>
+        </div>
+        <div class="vision">
+          <img
+            class="vision-img"
+            src="J_img2.png"  alt="Devinder Jaggi Mission 2027"
+          />
+          <div class="vision-body">
+            <p>
+              Devinder (Jaggi) is a Congress leader from
+              <strong>Dharamshala, Kangra district</strong>, with a long
+              association with public and local political life.
+            </p>
+
+            <p>
+              He has served in the
+              <strong>Dharamshala Municipal Corporation</strong>, first as
+              Deputy Mayor and later as <strong>Mayor</strong>. His experience
+              in local governance has been an important part of his public
+              service journey in Dharamshala.
+            </p>
+
+            <p>
+              He has also been associated with the
+              <strong>Himachal Pradesh Congress Committee</strong> and was
+              selected by the Indian National Congress as its candidate for the
+              <strong>2024 Dharamshala Assembly by-election</strong>.
+            </p>
+          </div>
+          <div class="chips">
+            <a class="chip" href="#priorities">Dharamshala Development ↗</a>
+            <a class="chip" href="#priorities">Urban Development ↗</a>
+            <a class="chip" href="#priorities">Public Infrastructure ↗</a>
+            <a class="chip" href="#priorities">Tourism &amp; Local Economy ↗</a>
+            <a class="chip" href="#priorities">Public Services ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="priorities" style="background: var(--paper-dim)">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Why choose Devinder Jaggi</div>
+          <h2>Dharamshala First</h2>
+          <p>
+            A vision focused on better civic services, stronger infrastructure
+            and inclusive development.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="wnum">01</div>
+            <h3>Local Leadership</h3>
+            <p>
+              A former Mayor of Dharamshala with experience working closely with
+              residents and addressing civic and local development issues.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="wnum">02</div>
+            <h3>Better Dharamshala</h3>
+            <p>
+              A focus on improving basic amenities, sanitation, public spaces,
+              roads and essential civic services to build a cleaner and better
+              Dharamshala.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="wnum">03</div>
+            <h3>Tourism & Connectivity</h3>
+            <p>
+              Supporting stronger tourism infrastructure, better connectivity
+              and improved facilities so that Dharamshala's growing tourism
+              economy creates greater opportunities for local people.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="wnum">04</div>
+            <h3>Rural Development</h3>
+            <p>
+              Working to extend development beyond the city through better
+              irrigation, restoration of traditional Kuhls and improved
+              facilities for villages and farming communities.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="wnum">05</div>
+            <h3>Accessible Governance</h3>
+            <p>
+              Advocating for government services and administrative facilities
+              closer to the people, including stronger administrative importance
+              for Dharamshala.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="wnum">06</div>
+            <h3>Youth & Local Opportunities</h3>
+            <p>
+              A development approach aimed at expanding opportunities for young
+              people through tourism, local businesses, improved infrastructure
+              and a stronger regional economy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="initiatives" class="init-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Initiatives</div>
+          <h2>Transforming Dharamshala Together</h2>
+          <p>
+            Key priorities for stronger infrastructure, tourism, civic services
+            and inclusive development across Dharamshala.
+          </p>
+        </div>
+
+        <div class="init-grid">
+          <div class="init-card">
+            <div class="init-top"></div>
+            <div class="init-body">
+              <h3>Kangra Airport Expansion</h3>
+              <p>
+                Supporting better air connectivity to strengthen Dharamshala and
+                Kangra's tourism economy and create greater opportunities for
+                local businesses and young people.
+              </p>
+              <span class="rm">Read more →</span>
+            </div>
+          </div>
+
+          <div class="init-card">
+            <div class="init-top"></div>
+            <div class="init-body">
+              <h3>Tourism &amp; Infrastructure</h3>
+              <p>
+                Working towards better tourist facilities, connectivity, public
+                spaces and essential infrastructure to make Dharamshala a
+                stronger destination for visitors and residents.
+              </p>
+              <span class="rm">Read more →</span>
+            </div>
+          </div>
+
+          <div class="init-card">
+            <div class="init-top"></div>
+            <div class="init-body">
+              <h3>Kuhls &amp; Rural Development</h3>
+              <p>
+                Supporting the restoration and strengthening of traditional
+                Kuhls and irrigation infrastructure to benefit farmers and rural
+                communities around Dharamshala.
+              </p>
+              <span class="rm">Read more →</span>
+            </div>
+          </div>
+
+          <div class="init-card">
+            <div class="init-top"></div>
+            <div class="init-body">
+              <h3>Better Civic Services</h3>
+              <p>
+                Focusing on cleaner surroundings, improved basic amenities,
+                sanitation and responsive civic services for the people of
+                Dharamshala.
+              </p>
+              <span class="rm">Read more →</span>
+            </div>
+          </div>
+
+          <div class="init-card">
+            <div class="init-top"></div>
+            <div class="init-body">
+              <h3>Administrative Hub</h3>
+              <p>
+                Advocating for greater administrative importance for
+                Dharamshala, including bringing suitable government offices and
+                services closer to the people.
+              </p>
+              <span class="rm">Read more →</span>
+            </div>
+          </div>
+
+          <div class="init-card">
+            <div class="init-top"></div>
+            <div class="init-body">
+              <h3>Youth &amp; Local Employment</h3>
+              <p>
+                Promoting opportunities for young people through tourism, local
+                enterprise, improved connectivity and a stronger regional
+                economy.
+              </p>
+              <span class="rm">Read more →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Latest News</div>
+          <h2>From Dharamshala</h2>
+        </div>
+
+        <div class="news-grid">
+          <div class="news-card">
+            <div class="news-body">
+              <div class="news-date">April 2025</div>
+              <h3>Seeking government offices for Dharamshala</h3>
+              <p>
+                Jaggi led a delegation urging the state government to shift
+                suitable government offices from rented premises in Shimla to
+                vacant government buildings in Dharamshala.
+              </p>
+              <a
+                class="rm"
+                href="https://www.tribuneindia.com/news/himachal/shift-offices-from-shimla-to-dharamsala-cm-urged/"
+                target="_blank"
+                rel="noopener"
+                >Source: The Tribune ↗</a
+              >
+            </div>
+          </div>
+
+          <div class="news-card">
+            <div class="news-body">
+              <div class="news-date">November 2025</div>
+              <h3>Push for Kuhls and irrigation development</h3>
+              <p>
+                Jaggi raised the need to include traditional Kuhls in the JICA
+                project and highlighted irrigation restoration as an important
+                priority for farmers and rural communities.
+              </p>
+              <a
+                class="rm"
+                href="https://www.yugmarg.com/news/45518-efforts-to-incorporate-kuhls-into-the-jica-project-devinder-jaggi"
+                target="_blank"
+                rel="noopener"
+                >Source: Yugmarg ↗</a
+              >
+            </div>
+          </div>
+
+          <div class="news-card">
+            <div class="news-body">
+              <div class="news-date">April 2026</div>
+              <h3>Focus on better civic amenities in Dharamshala</h3>
+              <p>
+                During the Dharamshala municipal election campaign, Jaggi
+                highlighted basic amenities and the goal of making Dharamshala
+                cleaner and better for residents.
+              </p>
+              <a
+                class="rm"
+                href="https://www.tribuneindia.com/news/himachal/dharamsala-mc-poll-battle-hots-up-6-congress-nominees-file-papers/"
+                target="_blank"
+                rel="noopener"
+                >Source: The Tribune ↗</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="facebook-feed">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Facebook</div>
+          <h2>Latest updates from Facebook and Instagram</h2>
+          <p>
+            Follow recent announcements, public engagements, and campaign
+            updates directly from the official Facebook page.
+          </p>
+        </div>
+        <div class="facebook-feed">
+          <div
+            class="fb-page"
+            data-href="https://www.facebook.com/j.devinder"
+            data-tabs="timeline"
+            data-width="1000"
+            data-height="720"
+            data-small-header="false"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="true"
+          ></div>
+          <!-- Instagram -->
+          <div class="instagram-box">
+            <div class="instagram-profile">
+              <div class="instagram-icon">◎</div>
+
+              <h3>Instagram</h3>
+
+              <p>@devinderjaggi_dshala</p>
+
+              <a
+                href="https://www.instagram.com/devinderjaggi_dshala/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="instagram-btn"
+              >
+                View Instagram Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="wrap">
+        <h2>Building Dharamshala's Future</h2>
+        <p>
+          A vision for better infrastructure, stronger tourism, rural
+          development and greater opportunities for the people of Dharamshala.
+        </p>
+        <button class="btn btn-primary" id="contactBtn">Connect With Us</button>
+      </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+      <div class="modal-content">
+        <button id="closeBtn" class="close-btn">&times;</button>
+
+        <h2>Connect With Us</h2>
+
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="email" placeholder="Your Email" required />
+          <input type="tel" id="phone" placeholder="Your Phone" required />
+          <textarea id="message" placeholder="Your Message" required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+        <div id="successMessage" class="success-message">
+          <div class="success-icon">✓</div>
+          <h2>Thank You!</h2>
+          <p>Your response has been submitted successfully.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer id="contact">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <div class="foot-brand">Devinder <span>Jaggi</span></div>
+
+            <p class="foot-bio">
+              Former Mayor, Dharamshala. Senior Congress leader from
+              Dharamshala, Kangra district — Indian National Congress.
+            </p>
+
+            <div class="foot-social">
+              <a
+                href="https://www.facebook.com/j.devinder"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                >f</a
+              >
+              <a
+                href="https://x.com/ANI/status/1788222464998199388"
+                target="_blank"
+                rel="noopener"
+                aria-label="X / Twitter"
+                >X</a
+              >
+              <a
+                href="https://www.instagram.com/devinderjaggi_dshala/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                >ig</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <h4>Priorities</h4>
+            <ul>
+              <li>
+                <a href="#priorities">Tourism &amp; Infrastructure</a>
+              </li>
+              <li>
+                <a href="#priorities">Better Civic Services</a>
+              </li>
+              <li>
+                <a href="#priorities">Rural Development</a>
+              </li>
+              <li>
+                <a href="#priorities">Youth &amp; Employment</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#priorities">Priorities</a></li>
+              <li><a href="#initiatives">Initiatives</a></li>
+              <li><a href="#news">Latest News</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Get in Touch</h4>
+            <ul>
+              <li>Dharamshala, Kangra District, Himachal Pradesh</li>
+              <li>Office contact details to be added</li>
+              <li>Public office information to be updated</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="foot-bottom">
+          Devinder Jaggi · Former Mayor, Dharamshala · Indian National Congress
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const contactBtn = document.getElementById("contactBtn");
+      const contactModal = document.getElementById("contactModal");
+      const closeBtn = document.getElementById("closeBtn");
+      const contactForm = document.getElementById("contactForm");
+      const successMessage = document.getElementById("successMessage");
+      // Open popup
+      contactBtn.addEventListener("click", () => {
+        contactModal.style.display = "flex";
+      });
+
+      // Close popup
+      closeBtn.addEventListener("click", () => {
+        contactModal.style.display = "none";
+      });
+
+      // Submit form
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const userData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          phone: document.getElementById("phone").value,
+          message: document.getElementById("message").value,
+        };
+
+        console.log(userData);
+
+        // Hide form
+        contactForm.style.display = "none";
+
+        // Show success message
+        successMessage.style.display = "block";
+
+        // Close popup after 3 seconds
+        setTimeout(() => {
+          contactModal.style.display = "none";
+
+          // Reset form for next submission
+          contactForm.reset();
+
+          // Prepare form for next time
+          contactForm.style.display = "block";
+          successMessage.style.display = "none";
+        }, 5000);
+      });
+
+      // Indicative countdown target — update to the real notified poll date once announced.
+      var target = new Date("2027-12-01T00:00:00").getTime();
+      function tick() {
+        var now = new Date().getTime();
+        var d = target - now;
+        if (d < 0) {
+          d = 0;
+        }
+        var days = Math.floor(d / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var mins = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+        var secs = Math.floor((d % (1000 * 60)) / 1000);
+        document.getElementById("cd-days").textContent = days;
+        document.getElementById("cd-hours").textContent = hours;
+        document.getElementById("cd-mins").textContent = mins;
+        document.getElementById("cd-secs").textContent = secs;
+      }
+      tick();
+      setInterval(tick, 1000);
+    </script>
+
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          xfbml: true,
+          version: "v19.0",
+        });
+      };
+
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src =
+          "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+  </body>
+</html>
