@@ -622,7 +622,7 @@
         background: var(--paper);
       }
       .instagram-box {
-  min-height: 720px;
+  min-height: 400px;
   border: 1px solid #ddd;
   border-radius: 12px;
 
@@ -690,27 +690,34 @@ background-repeat: no-repeat;
         transform: translateY(-2px);
         opacity: 0.9;
       }
-     @media (max-width: 768px) {
+    
+      @media (max-width: 768px) {
   .facebook-feed {
     flex-direction: column;
     gap: 20px;
     width: 100%;
   }
 
-  .facebook-feed .fb-page {
-    width: 100% !important;
-  }
-
   .instagram-box {
     width: 100%;
-    min-height: 500px;
+    min-height: 350px;
     background-size: cover;
     background-position: center;
   }
 
   .instagram-profile {
     width: 90%;
-    padding: 30px 15px;
+    padding: 20px 15px;
+  }
+
+  .instagram-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 38px;
+  }
+
+  .instagram-profile h3 {
+    font-size: 24px;
   }
 }
 
