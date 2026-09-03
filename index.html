@@ -623,13 +623,11 @@
         background: var(--paper);
       }
       .instagram-box {
-  min-height: 400px;
+  min-height: 300px;
   border: 1px solid #ddd;
   border-radius: 12px;
 
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
-    url("J_img3.png");
+ 
 
   background-size: 620px 720px;
 background-position: center;
@@ -639,6 +637,7 @@ background-repeat: no-repeat;
 
   display: flex;
   align-items: center;
+  padding-bottom: 20px;
   justify-content: center;
   overflow: hidden;
 
@@ -648,6 +647,10 @@ background-repeat: no-repeat;
         width: 800px;
         text-align: center;
         padding: 40px 25px;
+      }
+      .instagram-post {
+        height: 600px;
+        align-items: center;
       }
       .instagram-icon {
         width: 75px;
@@ -710,6 +713,11 @@ background-repeat: no-repeat;
   .instagram-profile {
     width: 90%;
     padding: 20px 15px;
+  }
+   .instagram-post .instagram-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 
   .instagram-icon {
@@ -1486,20 +1494,18 @@ background-repeat: no-repeat;
           <!-- Instagram -->
           <div class="instagram-box">
             <div class="instagram-profile">
-              <div class="instagram-icon">◎</div>
+              <div class="instagram-post">
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/p/DcyLD8BFWnI/"
+      data-instgrm-version="14"
+      style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;">
+    </blockquote>
+  </div>
 
-              <h3>Instagram</h3>
+              
 
-              <p>@devinderjaggi_dshala</p>
-
-              <a
-                href="https://www.instagram.com/devinderjaggi_dshala/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="instagram-btn"
-              >
-                View Instagram Profile
-              </a>
+              
             </div>
           </div>
         </div>
@@ -1619,7 +1625,7 @@ background-repeat: no-repeat;
         </div>
       </div>
     </footer>
-
+    <script async src="https://www.instagram.com/embed.js"></script>
     <script>
       const contactBtn = document.getElementById("contactBtn");
       const contactModal = document.getElementById("contactModal");
