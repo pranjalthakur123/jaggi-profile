@@ -1576,6 +1576,29 @@ background-repeat: no-repeat;
   }
 }
 
+/* Slow scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 1.8s ease,
+    transform 1.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
     </style>
   </head>
   <body>
@@ -2424,5 +2447,33 @@ contactForm.addEventListener("submit", async (event) => {
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "facebook-jssdk");
     </script>
+
+    <script>
+  const revealElements = document.querySelectorAll(
+    "section, .vision-img, .hero-portrait"
+  );
+
+  revealElements.forEach((element) => {
+    element.classList.add("reveal");
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  revealElements.forEach((element) => {
+    observer.observe(element);
+  });
+</script>
   </body>
 </html>
