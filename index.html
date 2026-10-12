@@ -2237,7 +2237,7 @@ background-repeat: no-repeat;
   maxlength="10" required />
           <textarea id="message" placeholder="Your Message" required></textarea>
 
-          <button type="submit">Submit</button>
+          <button type="submit" id="submitBtn">Submit</button>
         </form>
         <div id="successMessage" class="success-message">
           <div class="success-icon">✓</div>
@@ -2334,6 +2334,8 @@ background-repeat: no-repeat;
       const closeBtn = document.getElementById("closeBtn");
       const contactForm = document.getElementById("contactForm");
       const successMessage = document.getElementById("successMessage");
+      const submitBtn = document.getElementById("submitBtn");
+const originalSubmitText = submitBtn.textContent;
       // Open popup
       contactBtn.addEventListener("click", () => {
         contactModal.style.display = "flex";
@@ -2347,6 +2349,8 @@ background-repeat: no-repeat;
      // Submit form
 contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  submitBtn.textContent = "Please wait...";
+submitBtn.disabled = true;
 
   const userData = {
     name: document.getElementById("name").value,
@@ -2394,6 +2398,10 @@ contactForm.addEventListener("submit", async (event) => {
     console.error("Error:", error);
     alert("Unable to connect to the server.");
   }
+  finally {
+        submitBtn.textContent = originalSubmitText;
+        submitBtn.disabled = false;
+    }
 });
 
       // Indicative countdown target — update to the real notified poll date once announced.
