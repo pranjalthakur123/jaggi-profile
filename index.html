@@ -1588,6 +1588,17 @@ background-repeat: no-repeat;
     transition: none;
   }
 }
+.brand a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.congress-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
 
     </style>
   </head>
@@ -1621,7 +1632,11 @@ background-repeat: no-repeat;
 
     <nav>
       <div class="wrap">
-        <div class="brand"><a href="#topbar">Devinder <span>Jaggi</span></a></div>
+      
+        <div class="brand">
+          <a href="#topbar">
+            <img src="logo.webp" alt="Congress Logo" class="congress-logo">
+            Devinder <span>Jaggi</span></a></div>
         <div class="navlinks">
           <a href="#about">About</a>
           <a href="#priorities">Priorities</a>
