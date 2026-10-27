@@ -1615,6 +1615,133 @@ background-repeat: no-repeat;
   }
 }
 
+
+
+      /* Clean Congress-inspired theme: restrained tricolour, no decorative gradients */
+      :root {
+        --paper: #ffffff;
+        --paper-dim: #f5f8f5;
+        --ink: #26332b;
+        --ink-soft: #5b665f;
+        --navy: #24533a;
+        --navy-deep: #173d2b;
+        --navy-mid: #326b4a;
+        --saffron: #e98232;
+        --saffron-deep: #bd6421;
+        --green: #16804a;
+        --green-deep: #12663b;
+        --rule: rgba(31, 83, 54, 0.15);
+        --max: 1180px;
+      }
+
+      body { background: #fff; color: var(--ink); }
+      .topbar { background: #f5f8f5; color: #42554a; }
+      .topbar::before { display: none; }
+      .topbar a { color: #42554a; }
+      .topbar a:hover { color: var(--green); }
+      nav { background: #fff; border-bottom: 1px solid #e4ebe5; box-shadow: 0 2px 8px rgba(25, 65, 42, .04); backdrop-filter: none; }
+      .brand, .foot-brand { color: var(--navy-deep); }
+      .brand span, .foot-brand span { color: var(--saffron-deep); }
+      .navlinks a { color: #3e5145; }
+      .navlinks a:hover { color: var(--green); }
+      .btn { border-radius: 4px; box-shadow: none; letter-spacing: .025em; }
+      .btn-primary { color: #fff; background: var(--green); border-color: var(--green); }
+      .btn-primary:hover { color: #fff; background: var(--green-deep); border-color: var(--green-deep); transform: none; box-shadow: none; }
+      .btn-outline { border-color: #c7d7cc; color: var(--navy-deep); }
+      .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+      .hero { background: #f6f8f5; color: var(--ink); padding-top: 66px; padding-bottom: 66px; }
+      .hero::after { height: 4px; width: 100%; background: linear-gradient(90deg, #e98232 0 33.33%, #fff 33.33% 66.66%, #16804a 66.66% 100%); }
+      .hero-chakra { display: none; }
+      .hero-shloka { color: var(--green-deep); }
+      .hero .eyebrow { color: var(--saffron-deep); }
+      .hero .eyebrow::before { background: var(--saffron); }
+      .hero h1 { color: var(--navy-deep); font-family: Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing: -.025em; }
+      .hero .surname { color: var(--green); }
+      .hero .devanagari { color: #52645a; border-top-color: #dbe5dd; }
+      .hero-role { color: #4e5d53; }
+      .hero-role strong { color: var(--navy-deep); }
+      .hero-tags { color: #42564a; }
+      .hero-tags span { background: #fff; border: 1px solid #dce6de; border-radius: 4px; }
+      .hero-portrait .frame::before { border-color: #d8e5da; }
+      .hero-portrait .tag { background: var(--green); color: #fff; }
+
+      .campaign { background: #f5f8f5; }
+      .campaign .eyebrow, .cd-box .n, .why-card .wnum, .news-date { color: var(--green); }
+      .campaign h2, .section-head h2, .mini-card h3, .vision-body p:first-child,
+      .why-card h3, .init-card h3, .news-card h3, .instagram-profile h3 { color: var(--navy-deep); }
+      .cd-box, .mini-card, .why-card, .init-card, .news-card { border: 1px solid #e1e9e2; box-shadow: 0 2px 8px rgba(28, 65, 42, .035); }
+      .chip { color: var(--green-deep); border-color: #dbe6dd; }
+      .chip:hover { background: var(--green); border-color: var(--green); color: #fff; }
+      .why-card:hover, .init-card:hover, .news-card:hover { border-color: #a8c7b1; box-shadow: 0 6px 18px rgba(28, 65, 42, .07); transform: translateY(-2px); }
+      .init-section { background: #f5f8f5; }
+      .init-card .init-top { background: var(--green); }
+      .init-card:nth-child(even) .init-top { background: var(--saffron); }
+      .init-card .rm, .init-card:nth-child(even) .rm, .news-card a.rm { color: var(--green-deep); }
+      .instagram-btn { background: var(--green); }
+      .instagram-btn:hover { background: var(--green-deep); }
+      .cta-band { background: var(--green-deep); }
+      .cta-band p { color: #e1ebe4; }
+      .modal { background: rgba(22, 48, 32, .58); backdrop-filter: none; }
+      .modal-content h2 { color: var(--navy-deep); }
+      .modal-content input:focus, .modal-content textarea:focus, .modal-content select:focus { border-color: var(--green); }
+      .modal-content form button[type="submit"] { background: var(--green); }
+      .modal-content form button[type="submit"]:hover { background: var(--green-deep); }
+      .close-btn { color: var(--green-deep); }
+      footer { background: #173d2b; color: #e5eee7; }
+      .foot-brand { color: #fff; }
+      .foot-brand span { color: #f0a05c; }
+      .foot-bio { color: #d0ded4; }
+      footer ul a { color: #d9e5dc; }
+      footer ul a:hover { color: #f0a05c; }
+      .foot-social a:hover { background: var(--saffron); border-color: var(--saffron); color: #173d2b; }
+      .foot-bottom { border-top-color: rgba(255,255,255,.18); color: #c3d4c8; }
+
+      @media (max-width: 760px) {
+        .hero { padding-top: 44px; padding-bottom: 48px; }
+      }
+      #col {
+        color:white;
+      }
+      .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Large Congress watermark across the left half */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+
+  inset:0;
+
+ 
+
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-H4QT5QMP6RCYOca_jVzKFKLG0RPie_eRg6GJZkgL-gU3Bee5aM2qNFzm&s=10");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  opacity: 0.10;
+  
+ 
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Keep hero content above the watermark */
+.hero > * {
+  position: relative;
+}
+
+
     </style>
   </head>
   <body>
@@ -1657,7 +1784,7 @@ background-repeat: no-repeat;
           <a href="#priorities">Priorities</a>
           <a href="#initiatives">Initiatives</a>
           <a href="#news">Media</a>
-          <a class="btn btn-primary" href="#new">Join the Movement</a>
+          <a class="btn btn-primary" id="col" href="#new">Join the Movement</a>
         </div>
       </div>
     </nav>
@@ -1748,33 +1875,9 @@ background-repeat: no-repeat;
             rural development, youth opportunities and accessible governance.
           </p>
 
-          <div class="countdown" id="countdown">
-            <div class="cd-box">
-              <div class="n" id="cd-days">--</div>
-              <div class="l">Days</div>
-            </div>
+         
 
-            <div class="cd-box">
-              <div class="n" id="cd-hours">--</div>
-              <div class="l">Hours</div>
-            </div>
-
-            <div class="cd-box">
-              <div class="n" id="cd-mins">--</div>
-              <div class="l">Minutes</div>
-            </div>
-
-            <div class="cd-box">
-              <div class="n" id="cd-secs">--</div>
-              <div class="l">Seconds</div>
-            </div>
-          </div>
-
-          <div class="campaign-note">
-            Countdown towards the expected 2027 Himachal Pradesh Assembly
-            election period. Update the countdown once the Election Commission
-            officially announces the election schedule.
-          </div>
+            
         </div>
 
         <div class="mini-cards">
