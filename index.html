@@ -83,52 +83,42 @@
         background: var(--green);
       }
 
-      /* TOPBAR */
-      .topbar {
-        background: var(--navy-deep);
-        color: #c9d2df;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 0.74rem;
-        position: relative;
-        overflow: hidden;
-      }
-      .topbar::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            circle at 15% 50%,
-            rgba(232, 114, 12, 0.25),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at 85% 50%,
-            rgba(15, 107, 51, 0.3),
-            transparent 55%
-          );
-      }
-      .topbar .wrap {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        padding: 9px 28px;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .topbar a {
-        color: #c9d2df;
-        
+     
+    /* TOPBAR */
+.topbar {
+  background: #F7EFDD !important;
+  color: var(--navy-deep);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  position: relative;
+  overflow: hidden;
+}
 
-      }
-      .topbar a:hover {
-        color: var(--saffron);
-      }
-      .topbar .tb-links {
-        display: flex;
-        gap: 18px;
-      }
+.topbar::before {
+  display: none;
+}
 
+.topbar .wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 28px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topbar a {
+  color: var(--navy-deep);
+}
+
+.topbar a:hover {
+  color: var(--saffron);
+}
+
+.topbar .tb-links {
+  display: flex;
+  gap: 18px;
+}
       /* NAV */
       nav {
         position: sticky;
@@ -1740,9 +1730,10 @@ background-repeat: no-repeat;
 .hero > * {
   position: relative;
 }
-.sm{
+.sm {
   font-size: 9px;
-  
+  color: var(--navy-deep);
+  margin: 0;
 }
 
 
