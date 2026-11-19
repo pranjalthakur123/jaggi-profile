@@ -2870,6 +2870,39 @@
   z-index: 2;
 }
 
+.why-card {
+  transition: all 0.35s ease;
+}
+
+.why-card:hover {
+  background: #ffffff;
+  color: #1c2938;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Change heading and paragraph colors */
+.why-card:hover h3,
+.why-card:hover .why-english,
+.why-card:hover .why-hindi {
+  color: #1c2938;
+}
+
+/* Change number and icon colors */
+.why-card:hover .why-number,
+.why-card:hover .why-icon {
+  color: #b88632;
+}
+
+/* Change divider color */
+.why-card:hover hr {
+  border-color: #d8d8d8;
+}
+
+/* Change top line */
+.why-card:hover .why-line {
+  background: #b88632;
+}
 
     </style>
   </head>
