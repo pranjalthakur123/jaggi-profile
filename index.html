@@ -2834,6 +2834,43 @@
   }
 }
 
+/* BLUR INITIATIVES BACKGROUND ONLY */
+
+.init-section {
+  position: relative;
+  isolation: isolate;
+  background: none !important;
+}
+
+.init-section::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.15)
+    ),
+    url("dharamshala-transformation.png");
+
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+}
+
+/* Keep content sharp */
+.init-section .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.init-section .init-wave {
+  z-index: 2;
+}
+
+
     </style>
   </head>
   <body>
@@ -3191,7 +3228,7 @@
     </section>
 
     
-
+<br>
 
 <section id="initiatives" class="init-section">
 
